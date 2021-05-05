@@ -7,17 +7,18 @@
 
   &__header {
     width: 100%;
-    height: 5rem;
+    height: 7rem;
+    border-radius: 1rem;
     // background-color: orangered;
     display: flex;
     align-items: center;
     // box-shadow: var(--shadow-light);
-    border-bottom: var(--border);
+    // border-bottom: var(--border);
 
     &-image {
       width: 3rem;
       height: 3rem;
-      margin: 0 1.5rem;
+      margin: 0 2rem 0 0;
       object-fit: cover;
       border-radius: 50%;
     }
@@ -39,7 +40,35 @@
     height: 100%;
     border-radius: 1rem;
     margin: 1rem 0;
-    background-color: purple;
+    // padding: 2rem 0;
+    overflow: scroll;
+    // background-color: purple;
+
+    &-message {
+      width: 100%;
+      display: flex;
+      margin: 2rem 0;
+      // background-color: royalblue;
+
+      &--img {
+        width: 3rem;
+        height: 3rem;
+        // margin: 0 1.5rem;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      &--content {
+        font-size: 1.4rem;
+        // width: 20rem;
+        // height: 8rem;
+        border-radius: 1rem;
+        margin-left: 1rem;
+        padding: 0.5rem 1rem;
+        box-shadow: var(--shadow-light);
+        // background-color: salmon;
+      }
+    }
   }
 
   &__sendbox {
@@ -69,6 +98,7 @@
       &--btn {
         border-style: none;
         background-color: var(--white);
+        cursor: pointer;
 
         &__img {
           width: 20px;

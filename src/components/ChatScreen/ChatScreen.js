@@ -1,5 +1,7 @@
 import React from "react";
 import direct from "./direct.svg";
+import Sender from "../MsgContainers/Sender";
+import Receiver from "../MsgContainers/Receiver";
 import "./ChatScreen.scss";
 
 function ChatScreen() {
@@ -17,7 +19,17 @@ function ChatScreen() {
         </div>
       </div>
 
-      <div className="screen__container"></div>
+      <div className="screen__container">
+        <Sender />
+        <Receiver />
+        <Sender />
+        <Receiver />
+        <Sender />
+        <Sender />
+        <Sender />
+        <Receiver />
+      </div>
+
       <div className="screen__sendbox">
         <form className="screen__sendbox-form">
           <input
