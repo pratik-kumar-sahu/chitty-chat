@@ -1,9 +1,8 @@
 .container {
-  box-sizing: border-box;
   width: 120rem;
   height: 55rem;
   margin: 5rem auto;
-  padding: 5%;
+  padding: 3%;
   border-radius: 2rem;
   background-color: var(--white);
   box-shadow: var(--shadow-light);

@@ -1,5 +1,18 @@
-.chat-sidebar {
+.sidebar {
   width: 34%;
   height: 100%;
-  background-color: orangered;
+  padding: 0.5rem 1rem;
+  // background-color: orangered;
+
+  &__header {
+    font-weight: 700;
+    font-size: 2.2rem;
+  }
+
+  &__scroll {
+    // background-color: orangered;
+    height: 100%;
+    padding: 1rem;
+    overflow: scroll;
+  }
 }
