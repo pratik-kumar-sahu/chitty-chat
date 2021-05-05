@@ -1,8 +1,40 @@
 import React from "react";
+import direct from "./direct.svg";
 import "./ChatScreen.scss";
 
 function ChatScreen() {
-  return <div className="screen"></div>;
+  return (
+    <div className="screen">
+      <div className="screen__header">
+        <img
+          className="screen__header-image"
+          src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+          alt="chat-room"
+        />
+        <div className="screen__header-details">
+          <h3 className="screen__header-details--name">Chat Room Name</h3>
+          <p className="screen__header-details--time">Last Seen at ...</p>
+        </div>
+      </div>
+
+      <div className="screen__container"></div>
+      <div className="screen__sendbox">
+        <form className="screen__sendbox-form">
+          <input
+            className="screen__sendbox-form--inputbox"
+            placeholder="Type message"
+          />
+          <button className="screen__sendbox-form--btn">
+            <img
+              className="screen__sendbox-form--btn__img"
+              src={direct}
+              alt="send"
+            />
+          </button>
+        </form>
+      </div>
+    </div>
+  );
 }
 
 export default ChatScreen;

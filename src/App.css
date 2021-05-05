@@ -4,7 +4,7 @@
   margin: 5rem auto;
   padding: 3%;
   border-radius: 2rem;
-  background-color: var(--white);
+  background-color: #f9fafb;
   box-shadow: var(--shadow-light);
   display: flex;
   justify-content: space-between;
