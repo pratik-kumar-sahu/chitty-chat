@@ -11,7 +11,7 @@ function Receiver() {
           style={{ backgroundColor: "#7c3aed", color: "#fff" }}
           className="screen__container-message--content"
         >
-          <p>Receiver's messages will appear here</p>
+          <p>Sent messages will appear here</p>
           <div
             style={{
               color: "var(--gray-light)",

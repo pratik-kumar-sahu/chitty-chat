@@ -14,9 +14,11 @@ function Sender() {
             style={{ color: "var(--gray-medium)", fontSize: "1.2rem" }}
             className="sender-name"
           >
-            Senders name
+            User's name
           </div>
-          <div className="sender-message">Senders message will appear here</div>
+          <div className="sender-message">
+            Received messages will appear here
+          </div>
           <div
             style={{
               color: "var(--gray-medium)",

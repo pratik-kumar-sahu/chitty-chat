@@ -16,8 +16,8 @@ function ChatSidebarItem() {
             <div className="sidebar-item__container--row-time">17:15</div>
           </div>
           <div className="sidebar-item__container--column-message">
-            Last message will appear here... more content to check and more
-            content to again check something
+            Last message will appear here... some random content to check the
+            alignment of messsages with container
           </div>
         </div>
       </div>
