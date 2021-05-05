@@ -5,7 +5,7 @@
   padding: 3%;
   border-radius: 2rem;
   background-color: #f9fafb;
-  box-shadow: var(--shadow-light);
+  box-shadow: var(--shadow-dark);
   display: flex;
   justify-content: space-between;
 }

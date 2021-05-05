@@ -32,7 +32,7 @@ body {
   font-weight: 400;
   line-height: 1.6;
   color: var(--gray-dark);
-  background-image: linear-gradient(to right, var(--white), var(--primary));
+  background-image: linear-gradient(to right, #93c5fd, var(--primary));
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
