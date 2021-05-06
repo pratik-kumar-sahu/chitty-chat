@@ -24,7 +24,7 @@ function ChatSidebar() {
       <h1 className="sidebar__header">Recent Chats</h1>
       <div className="sidebar__scroll">
         {rooms.map((room) => (
-          <ChatSidebarItem key={room.id} name={room.data.name} />
+          <ChatSidebarItem key={room.id} id={room.id} name={room.data.name} />
         ))}
       </div>
     </div>
