@@ -40,11 +40,16 @@ function ChatScreen() {
   const messageHandler = (e) => {
     e.preventDefault();
     if (text) {
-      invokeFirestore.collection("rooms").doc(roomId).collection("chats").add({
-        message: text,
-        author: user.user.displayName,
-        timestamp: timestamp(),
-      });
+      invokeFirestore
+        .collection("rooms")
+        .doc(roomId)
+        .collection("chats")
+        .add({
+          message: text,
+          pic: `https://ui-avatars.com/api/?name=${user.user.displayName}`,
+          author: user.user.displayName,
+          timestamp: timestamp(),
+        });
     }
     setText("");
   };

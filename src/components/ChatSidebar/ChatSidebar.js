@@ -9,14 +9,18 @@ function ChatSidebar() {
   const [rooms, setRooms] = useState([]);
 
   useEffect(() => {
-    invokeFirestore.collection("rooms").onSnapshot((snapshot) => {
-      setRooms(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        }))
-      );
-    });
+    const unMount = invokeFirestore
+      .collection("rooms")
+      .onSnapshot((snapshot) => {
+        setRooms(
+          snapshot.docs.map((doc) => ({
+            id: doc.id,
+            data: doc.data(),
+          }))
+        );
+      });
+
+    return () => unMount();
   }, []);
 
   return (
