@@ -1,7 +1,7 @@
 import React from "react";
 import "./ChatSidebarItem.scss";
 
-function ChatSidebarItem() {
+function ChatSidebarItem({ name }) {
   return (
     <div className="sidebar-item">
       <div className="sidebar-item__container">
@@ -12,7 +12,7 @@ function ChatSidebarItem() {
         />
         <div className="sidebar-item__container--column">
           <div className="sidebar-item__container--row">
-            <div className="sidebar-item__container--row-name">Chat Name</div>
+            <div className="sidebar-item__container--row-name">{name}</div>
             <div className="sidebar-item__container--row-time">17:15</div>
           </div>
           <div className="sidebar-item__container--column-message">
