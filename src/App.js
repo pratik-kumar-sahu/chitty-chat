@@ -9,7 +9,7 @@ import "./App.css";
 function App() {
   const { user } = useContext(UserContext);
 
-  return user ? (
+  return !user ? (
     <Login />
   ) : (
     <div className="container">

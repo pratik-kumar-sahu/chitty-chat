@@ -1,6 +1,6 @@
 import React from "react";
 
-function Sender() {
+function Sender({ chat }) {
   return (
     <>
       <div className="screen__container-message">
@@ -14,11 +14,9 @@ function Sender() {
             style={{ color: "var(--gray-medium)", fontSize: "1.2rem" }}
             className="sender-name"
           >
-            User's name
+            {chat.author}
           </div>
-          <div className="sender-message">
-            Received messages will appear here
-          </div>
+          <div className="sender-message">{chat.message}</div>
           <div
             style={{
               color: "var(--gray-medium)",
@@ -26,7 +24,7 @@ function Sender() {
               float: "right",
             }}
           >
-            12:41
+            {new Date(chat.timestamp?.toDate()).toUTCString()}
           </div>
         </div>
       </div>
