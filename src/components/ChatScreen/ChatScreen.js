@@ -75,6 +75,8 @@ function ChatScreen() {
     setText("");
   };
 
+  // const logout = () => {};
+
   return (
     <div className="screen">
       <div className="screen__header">
@@ -83,6 +85,9 @@ function ChatScreen() {
           <h3 className="screen__header-details--name">{roomName}</h3>
           <p className="screen__header-details--time">Last Seen at {time}</p>
         </div>
+        {/* <button onClick={() => logout()} className="screen__header-logout">
+          Logout ➡️
+        </button> */}
       </div>
 
       <div ref={containerRef} className="screen__container">

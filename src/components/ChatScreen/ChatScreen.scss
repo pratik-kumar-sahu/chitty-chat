@@ -33,6 +33,15 @@
       &--time {
       }
     }
+
+    &-logout {
+      border-style: none;
+      cursor: pointer;
+      background-color: firebrick;
+      color: var(--white);
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+    }
   }
 
   &__container {
