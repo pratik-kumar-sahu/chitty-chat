@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import direct from "./direct.svg";
 import Sender from "../MsgContainers/Sender";
 import Receiver from "../MsgContainers/Receiver";
@@ -8,12 +8,13 @@ import { invokeFirestore, timestamp } from "../../firebase";
 import { useParams } from "react-router";
 
 function ChatScreen() {
-  const { user, dispatch } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const [chats, setChats] = useState([]);
   const [text, setText] = useState("");
   const [roomName, setRoomName] = useState("");
   const [roomImage, setRoomImage] = useState(null);
   const { roomId } = useParams();
+  const containerRef = useRef(null);
 
   let time;
   if (chats.length > 0) {
@@ -21,6 +22,17 @@ function ChatScreen() {
       chats[chats.length - 1].data.timestamp?.toDate()
     ).toLocaleString();
   }
+
+  useEffect(() => {
+    if (containerRef && containerRef.current) {
+      const element = containerRef.current;
+      element.scroll({
+        top: element.scrollHeight,
+        left: 0,
+        behavior: "smooth",
+      });
+    }
+  }, [containerRef, chats]);
 
   useEffect(() => {
     invokeFirestore
@@ -73,7 +85,7 @@ function ChatScreen() {
         </div>
       </div>
 
-      <div className="screen__container">
+      <div ref={containerRef} className="screen__container">
         {chats.map((chat) =>
           chat.data.author === user.user.displayName ? (
             <Receiver key={chat.id} chat={chat.data} />

@@ -1,11 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./ChatSidebar.scss";
 import ChatSidebarItem from "../ChatSidebarItem/ChatSidebarItem";
-import { UserContext } from "../../contexts/UserContext";
 import { invokeFirestore } from "../../firebase";
 
 function ChatSidebar() {
-  const { user, dispatch } = useContext(UserContext);
   const [rooms, setRooms] = useState([]);
 
   useEffect(() => {
