@@ -24,9 +24,13 @@ function ChatSidebar() {
   }, []);
 
   const addRoom = async () => {
-    let roomName = await prompt("Give room a name: ").substring(0, 30);
+    let roomName = await prompt("Give your room a name 🚀");
+    if (roomName) {
+      roomName = roomName.substring(0, 30);
+    }
     if (roomName) {
       roomName = roomName.charAt(0).toUpperCase() + roomName.slice(1);
+
       invokeFirestore.collection("rooms").add({
         name: roomName,
         pic: `https://ui-avatars.com/api/?background=random&name=${roomName}`,
@@ -36,15 +40,11 @@ function ChatSidebar() {
 
   return (
     <div className="sidebar">
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          marginBottom: "1rem",
-        }}
-      >
+      <div className="sidebar-flex">
         <h1 className="sidebar__header">Recent Chats</h1>
-        <button onClick={addRoom}>Add Room</button>
+        <button className="sidebar__addRoom" onClick={addRoom}>
+          +
+        </button>
       </div>
       <div className="sidebar__scroll">
         {rooms.map((room) => (
