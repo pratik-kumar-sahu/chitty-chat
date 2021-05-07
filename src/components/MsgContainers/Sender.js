@@ -1,6 +1,9 @@
 import React from "react";
 
 function Sender({ chat }) {
+  const today = new Date(chat.timestamp?.toDate());
+  const time = today.getHours() + ":" + today.getMinutes();
+
   return (
     <>
       <div className="screen__container-message">
@@ -24,7 +27,7 @@ function Sender({ chat }) {
               float: "right",
             }}
           >
-            {new Date(chat.timestamp?.toDate()).toUTCString()}
+            {time}
           </div>
         </div>
       </div>

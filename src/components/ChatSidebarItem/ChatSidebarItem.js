@@ -5,6 +5,12 @@ import "./ChatSidebarItem.scss";
 
 function ChatSidebarItem({ name, id, roomImage }) {
   const [chats, setChats] = useState("");
+  let time;
+
+  if (chats.length > 0) {
+    const today = new Date(chats[0].timestamp?.toDate());
+    time = today.getHours() + ":" + today.getMinutes();
+  }
 
   useEffect(() => {
     invokeFirestore
@@ -29,11 +35,10 @@ function ChatSidebarItem({ name, id, roomImage }) {
           <div className="sidebar-item__container--column">
             <div className="sidebar-item__container--row">
               <div className="sidebar-item__container--row-name">{name}</div>
-              <div className="sidebar-item__container--row-time">17:15</div>
+              <div className="sidebar-item__container--row-time">{time}</div>
             </div>
             <div className="sidebar-item__container--column-message">
-              Last message will appear here... some random content to check the
-              alignment of messsages with container
+              {chats[0] ? chats[0].message.substring(0, 50) + "..." : "..."}
             </div>
           </div>
         </div>

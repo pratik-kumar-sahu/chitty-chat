@@ -15,6 +15,13 @@ function ChatScreen() {
   const [roomImage, setRoomImage] = useState(null);
   const { roomId } = useParams();
 
+  let time;
+  if (chats.length > 0) {
+    time = new Date(
+      chats[chats.length - 1].data.timestamp?.toDate()
+    ).toLocaleString();
+  }
+
   useEffect(() => {
     invokeFirestore
       .collection("rooms")
@@ -62,7 +69,7 @@ function ChatScreen() {
         <img className="screen__header-image" src={roomImage} alt="chat-room" />
         <div className="screen__header-details">
           <h3 className="screen__header-details--name">{roomName}</h3>
-          <p className="screen__header-details--time">Last Seen at ...</p>
+          <p className="screen__header-details--time">Last Seen at {time}</p>
         </div>
       </div>
 

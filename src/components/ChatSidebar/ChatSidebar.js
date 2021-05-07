@@ -24,12 +24,12 @@ function ChatSidebar() {
   }, []);
 
   const addRoom = async () => {
-    let roomName = await prompt("Give room a name: ");
+    let roomName = await prompt("Give room a name: ").substring(0, 30);
     if (roomName) {
       roomName = roomName.charAt(0).toUpperCase() + roomName.slice(1);
       invokeFirestore.collection("rooms").add({
         name: roomName,
-        pic: `https://ui-avatars.com/api/?name=${roomName}`,
+        pic: `https://ui-avatars.com/api/?background=random&name=${roomName}`,
       });
     }
   };
