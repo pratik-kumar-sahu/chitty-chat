@@ -12,6 +12,7 @@ function ChatScreen() {
   const [chats, setChats] = useState([]);
   const [text, setText] = useState("");
   const [roomName, setRoomName] = useState("");
+  const [roomImage, setRoomImage] = useState(null);
   const { roomId } = useParams();
 
   useEffect(() => {
@@ -20,6 +21,7 @@ function ChatScreen() {
       .doc(roomId)
       .onSnapshot((snapshot) => {
         setRoomName(snapshot.data().name);
+        setRoomImage(snapshot.data().pic);
 
         invokeFirestore
           .collection("rooms")
@@ -57,11 +59,7 @@ function ChatScreen() {
   return (
     <div className="screen">
       <div className="screen__header">
-        <img
-          className="screen__header-image"
-          src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
-          alt="chat-room"
-        />
+        <img className="screen__header-image" src={roomImage} alt="chat-room" />
         <div className="screen__header-details">
           <h3 className="screen__header-details--name">{roomName}</h3>
           <p className="screen__header-details--time">Last Seen at ...</p>
