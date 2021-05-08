@@ -37,3 +37,27 @@
     overflow: scroll;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .sidebar {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 1rem 0;
+    overflow: visible;
+
+    &-flex {
+      width: 100%;
+      position: fixed;
+      background-color: var(--white);
+      height: 6rem;
+    }
+
+    &__scroll {
+      margin-top: 7rem;
+      height: auto;
+      overflow-y: scroll;
+      overflow: hidden;
+    }
+  }
+}

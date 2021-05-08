@@ -3,7 +3,7 @@ import "./ChatSidebar.scss";
 import ChatSidebarItem from "../ChatSidebarItem/ChatSidebarItem";
 import { invokeFirestore } from "../../firebase";
 
-function ChatSidebar() {
+function ChatSidebar({ clickHandler, show }) {
   const [rooms, setRooms] = useState([]);
 
   useEffect(() => {
@@ -23,6 +23,7 @@ function ChatSidebar() {
 
   const addRoom = async () => {
     let roomName = await prompt("Give your room a name 🚀");
+    roomName = roomName && roomName.trim();
     if (roomName) {
       roomName = roomName.substring(0, 30);
     }
@@ -36,8 +37,15 @@ function ChatSidebar() {
     }
   };
 
+  let styl;
+  if (show) {
+    styl = { display: "block" };
+  } else {
+    styl = { display: "none" };
+  }
+
   return (
-    <div className="sidebar">
+    <div style={{ display: styl.display }} className="sidebar">
       <div className="sidebar-flex">
         <h1 className="sidebar__header">Recent Chats</h1>
         <button className="sidebar__addRoom" onClick={addRoom}>
@@ -51,6 +59,7 @@ function ChatSidebar() {
             id={room.id}
             name={room.data.name}
             roomImage={room.data.pic}
+            clickHandler={clickHandler}
           />
         ))}
       </div>
