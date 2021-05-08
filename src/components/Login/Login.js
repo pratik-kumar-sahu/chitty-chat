@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { auth, provider } from "../../firebase";
+import panda from "./panda.gif";
 import "./Login.scss";
 
 function Login() {
   const { user, dispatch } = useContext(UserContext);
+  const [toggle, setToggle] = useState(false);
 
   const loginHandler = () => {
     auth
@@ -19,10 +21,22 @@ function Login() {
       .catch((err) => console.log(err));
   };
 
+  const toggleHandler = () => {
+    setToggle(!toggle);
+  };
+
   return (
-    <div>
-      <button onClick={loginHandler}>Login with Google</button>
-      {user && <p>{user.user.displayName}</p>}
+    <div className="login">
+      {toggle ? (
+        <img className="login__image" src={panda} alt="chitty-chat" />
+      ) : null}
+      <button className="login__btn" onClick={toggleHandler}>
+        Toggle me 🙃
+      </button>
+      <button className="login__btn" onClick={loginHandler}>
+        Login with Google ➡️
+      </button>
+      {/* {user && <p>{user.user.displayName}</p>} */}
     </div>
   );
 }
