@@ -133,27 +133,18 @@
 
     &__container {
       min-height: 10vh;
-      height: 80vh;
+      height: 85vh;
       margin-top: 6rem;
       padding: 1rem;
     }
 
     &__sendbox {
-      width: auto;
       height: auto;
-      margin: 1rem;
-
-      &-form {
-        margin-bottom: auto;
-      }
+      position: fixed;
+      bottom: 1em;
 
       &-form--inputbox {
         height: 5rem;
-
-        &:active,
-        &:focus {
-          height: 7rem;
-        }
       }
     }
   }

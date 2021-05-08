@@ -5,7 +5,7 @@ import panda from "./panda.gif";
 import "./Login.scss";
 
 function Login() {
-  const { user, dispatch } = useContext(UserContext);
+  const { dispatch } = useContext(UserContext);
   const [toggle, setToggle] = useState(false);
 
   const loginHandler = () => {
@@ -17,7 +17,7 @@ function Login() {
           user: resp.user,
         })
       )
-      .then(console.log(user))
+      .then(console.log("user sign in successfull"))
       .catch((err) => console.log(err));
   };
 
