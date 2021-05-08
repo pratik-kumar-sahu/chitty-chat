@@ -60,7 +60,7 @@ function ChatScreen({ clickHandler, show }) {
 
   const messageHandler = (e) => {
     e.preventDefault();
-    if (text) {
+    if (text.trim()) {
       invokeFirestore
         .collection("rooms")
         .doc(roomId)
