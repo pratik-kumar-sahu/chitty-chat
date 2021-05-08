@@ -7,7 +7,7 @@ import { UserContext } from "../../contexts/UserContext";
 import { invokeFirestore, timestamp } from "../../firebase";
 import { useParams } from "react-router";
 
-function ChatScreen() {
+function ChatScreen({ clickHandler, show }) {
   const { user } = useContext(UserContext);
   const [chats, setChats] = useState([]);
   const [text, setText] = useState("");
@@ -75,19 +75,24 @@ function ChatScreen() {
     setText("");
   };
 
-  // const logout = () => {};
+  let styl;
+  if (!show) {
+    styl = { display: "block" };
+  } else {
+    styl = { display: "none" };
+  }
 
   return (
-    <div className="screen">
+    <div style={{ display: styl.display }} className="screen">
       <div className="screen__header">
         <img className="screen__header-image" src={roomImage} alt="chat-room" />
         <div className="screen__header-details">
           <h3 className="screen__header-details--name">{roomName}</h3>
           <p className="screen__header-details--time">Last Seen at {time}</p>
         </div>
-        {/* <button onClick={() => logout()} className="screen__header-logout">
-          Logout ➡️
-        </button> */}
+        <button onClick={clickHandler} className="screen__header-logout">
+          ⬅️ Go Back
+        </button>
       </div>
 
       <div ref={containerRef} className="screen__container">
