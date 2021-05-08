@@ -3,7 +3,7 @@ import { invokeFirestore } from "../../firebase";
 import { Link } from "react-router-dom";
 import "./ChatSidebarItem.scss";
 
-function ChatSidebarItem({ name, id, roomImage }) {
+function ChatSidebarItem({ name, id, roomImage, clickHandler }) {
   const [chats, setChats] = useState("");
   let time;
 
@@ -24,7 +24,11 @@ function ChatSidebarItem({ name, id, roomImage }) {
   }, [id]);
 
   return (
-    <Link style={{ textDecoration: "none" }} to={`/rooms/${id}`}>
+    <Link
+      onClick={clickHandler}
+      style={{ textDecoration: "inherit", color: "inherit" }}
+      to={`/rooms/${id}`}
+    >
       <div className="sidebar-item">
         <div className="sidebar-item__container">
           <img
