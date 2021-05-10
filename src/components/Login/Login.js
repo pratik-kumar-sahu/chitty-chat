@@ -8,6 +8,9 @@ function Login() {
   const { dispatch } = useContext(UserContext);
   const [toggle, setToggle] = useState(false);
 
+  const email = "demo@gmail.com";
+  const password = "demo123@";
+
   const loginHandler = () => {
     auth
       .signInWithPopup(provider)
@@ -17,7 +20,20 @@ function Login() {
           user: resp.user,
         })
       )
-      .then(console.log("user sign in successfull"))
+      .then(() => console.log("user sign in successfull"))
+      .catch((err) => console.log(err));
+  };
+
+  const signIn = () => {
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((resp) =>
+        dispatch({
+          type: "VERIFY_USER",
+          user: resp.user,
+        })
+      )
+      .then(() => console.log("Demo user signed in"))
       .catch((err) => console.log(err));
   };
 
@@ -36,7 +52,9 @@ function Login() {
       <button className="login__btn" onClick={loginHandler}>
         Login with Google ➡️
       </button>
-      {/* {user && <p>{user.user.displayName}</p>} */}
+      <button className="login__btn" onClick={signIn}>
+        Login with Demo User 👽
+      </button>
     </div>
   );
 }
